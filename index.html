@@ -161,10 +161,38 @@
             </div>
             </header>
             <div></div>
-            <div></div>
             <div class="header_front_page">
                 <div class="header_info">
                     <h1 data-text="$GATES">$GATES</h1>
+                    <h2 id="crypto-price">Loading...</h2>
+
+                    <script>
+                        const apiUrl = `https://api.dexscreener.com/latest/dex/tokens/0x2d1040B359f49EE66e102B2A2Aa1b8f0E1d85050`;
+                
+                        async function fetchPrice() {
+                            try {
+                                const response = await fetch(apiUrl);
+                                const data = await response.json();
+                                console.log(data);
+                
+                                const price = data.pairs[0]?.priceUsd;
+                                if (price) {
+                                    document.getElementById('crypto-price').innerText = `$${price}`;
+                                } else {
+                                    document.getElementById('crypto-price').innerText = 'Price not available';
+                                    console.error('Price is undefined or not available');
+                                }
+                            } catch (error) {
+                                document.getElementById('crypto-price').innerText = 'Error fetching price';
+                                console.error('Error fetching price:', error);
+                            }
+                        }
+                
+                        fetchPrice();
+                    </script>
+                    </script>
+                    </script>
+                    </script>
                     <div class="contract">
                         <p id="contractAddress">0x2d1040B359f49EE66e102B2A2Aa1b8f0E1d85050</p>
                         <img src="./$GATES_files/copy2-DRsPcSEs.png" alt="Copy" id="copyImage">
@@ -200,7 +228,7 @@
                 </div>
             </div>
             <div></div>
-            <div>
+        
             <footer class="templateFooter">
                     <p>2025 © All Rights Reserved | Bill Gates Coin</p>
                 </a>
