@@ -7,12 +7,10 @@
     <meta name="theme-color" content="#000">
     <title>$GATES</title>
 
-    <!-- Stylesheets -->
     <link rel="stylesheet" href="./$GATES_files/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="./$GATES_files/rul4sbe.css">
     <link rel="stylesheet" crossorigin="" href="./$GATES_files/index-BnLZd4du.css">
 
-    <!-- Scripts -->
     <script type="module" crossorigin="" src="./$GATES_files/index-BuZLhpLQ.js.download"></script>
     <script src="./$GATES_files/confetti.browser.min.js.download"></script>
 
@@ -158,6 +156,9 @@
         <div class="background_img" style="background: url('https://cms.soma.finance/sites/default/files/styles/wide/public/2023-03/Article53_UpandDown.jpeg?itok=zPAru_4E') 0% 0% / cover;"></div>
         <div class="template_two_blur"></div>
         <div class="structure">
+            <div class="menu_btns">
+                <a href="https://discord.gg/BujcQCcAWK" target="_blank"><img src="./$GATES_files/dclogo.png" alt="" class="menu_btn"></a>
+            </div>
             </header>
             <div></div>
             <div></div>
@@ -165,9 +166,31 @@
                 <div class="header_info">
                     <h1 data-text="$GATES">$GATES</h1>
                     <div class="contract">
-                        <p>0x2d1040B359f49EE66e102B2A2Aa1b8f0E1d85050</p>
-                        <img src="./$GATES_files/copy2-DRsPcSEs.png" alt="">
+                        <p id="contractAddress">0x2d1040B359f49EE66e102B2A2Aa1b8f0E1d85050</p>
+                        <img src="./$GATES_files/copy2-DRsPcSEs.png" alt="Copy" id="copyImage">
                     </div>
+                    
+                    <script>
+                        function copyToClipboard() {
+                            const contractAddress = document.getElementById('contractAddress').innerText;
+                    
+                            const textarea = document.createElement('textarea');
+                            textarea.value = contractAddress;
+                            document.body.appendChild(textarea);
+                            
+                            textarea.select();
+                            textarea.setSelectionRange(0, 99999);
+                    
+                            document.execCommand('copy');
+                    
+                            document.body.removeChild(textarea);
+                    
+                            alert('Contract address copied: ' + contractAddress);
+                        }
+                    
+                        document.getElementById('copyImage').addEventListener('click', copyToClipboard);
+                        document.getElementById('contractAddress').addEventListener('click', copyToClipboard);
+                    </script>
                     <div class="header_socials">
                         <a href="https://dexscreener.com/polygon/0x1d6e0375b60fdb5af0714dfd9a36eceb4a81b833" target="_blank"><img src="./$GATES_files/dexlogo-BeJowQaO.jpeg" alt=""></a>
                     </div>
@@ -181,7 +204,7 @@
             <div></div>
             <div>
             <footer class="templateFooter">
-                    <p>2024-2025 © All Rights Reserved | Bill Gates Coin</p>
+                    <p>2025 © All Rights Reserved | Bill Gates Coin</p>
                 </a>
             </footer>
         </div>
